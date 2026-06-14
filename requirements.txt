@@ -1,0 +1,6 @@
+# Runtime dependencies (urllib3, boto3) are provided by the AWS Lambda runtime.
+# This file is for local development and testing only.
+
+urllib3
+boto3
+pytest

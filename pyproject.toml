@@ -1,0 +1,12 @@
+[project]
+name = "gh-stats"
+version = "0.1.0"
+description = "Self-hosted GitHub readme stats cards on AWS Lambda + CloudFront, written in Python."
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100

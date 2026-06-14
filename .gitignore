@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+tfplan
+terraform/build/
+# .terraform.lock.hcl is intentionally committed, do not ignore it
+
+# Environment / secrets
+.env
+.env.*
+
+# Build artifacts
+*.zip
+function.zip
+
+# OS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Claude Code local settings
+.claude/settings.local.json
