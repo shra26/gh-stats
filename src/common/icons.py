@@ -10,6 +10,8 @@ value as:
 Path data is sourced verbatim from the original github-readme-stats icons.js.
 """
 
+from __future__ import annotations
+
 ICONS: dict[str, str] = {
     "star": (
         '<path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01'

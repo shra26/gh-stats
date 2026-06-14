@@ -6,6 +6,8 @@ Base-2 exponential CDF is intentional (not natural log base e).
 Lower percentile = better rank.
 """
 
+from __future__ import annotations
+
 
 def exponential_cdf(x: float) -> float:
     """CDF approximation used for commits, PRs, issues, and reviews."""
@@ -26,7 +28,7 @@ def calculate_rank(
     reviews: int,
     stars: int,
     followers: int,
-) -> dict[str, object]:
+) -> dict:
     """
     Compute rank level and percentile from GitHub stats.
 

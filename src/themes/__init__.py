@@ -9,6 +9,8 @@ string like "angle,c1,c2,..." and must be handled by the caller.
 Optional keys: border_color, ring_color (not all themes have them).
 """
 
+from __future__ import annotations
+
 THEMES: dict[str, dict[str, str]] = {
     "default": {
         "title_color": "2f80ed",

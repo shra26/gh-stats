@@ -1,6 +1,6 @@
-output "function_url" {
-  description = "Raw Lambda Function URL (AWS_IAM protected -- direct requests return 403)."
-  value       = aws_lambda_function_url.this.function_url
+output "api_endpoint" {
+  description = "API Gateway HTTP API endpoint (direct access, no auth)."
+  value       = aws_apigatewayv2_api.this.api_endpoint
 }
 
 output "distribution_id" {

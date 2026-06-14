@@ -17,7 +17,7 @@ variable "lambda_timeout" {
 }
 
 variable "reserved_concurrency" {
-  description = "Reserved concurrent executions for the Lambda function. Acts as a hard ceiling on simultaneous invokes to bound cost and GitHub API burst."
+  description = "Reserved concurrent executions for the Lambda function (-1 = no reservation, uses unreserved pool). Set to a positive value to cap simultaneous invokes."
   type        = number
-  default     = 25
+  default     = -1
 }

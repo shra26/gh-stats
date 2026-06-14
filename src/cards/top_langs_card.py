@@ -154,7 +154,7 @@ def _render_normal(
                 f'<text x="2" y="{y + 15}" class="lang-name" '
                 f'fill="{text_color}" font-size="11" font-family="Segoe UI,Ubuntu,sans-serif">'
                 f'{name}</text>'
-                f'<text x="{bar_width + 30}" y="{y + 15}" '
+                f'<text x="{bar_width}" y="{y + 15}" '
                 f'fill="{text_color}" font-size="11" font-family="Segoe UI,Ubuntu,sans-serif" '
                 f'text-anchor="end">{encode_html(label)}</text>'
                 f'<rect x="2" y="{y + 22}" rx="4" ry="4" width="{bar_width}" height="{_BAR_HEIGHT}" '
@@ -479,8 +479,11 @@ def render_top_languages_card(
             langs, colors, hide_progress, stats_format, card_width
         )
 
-    title_offset = 0 if hide_title else 45
-    card_height = content_h + title_offset + 20
+    # base_card.render() wraps body in translate(25, 50) when title is visible,
+    # translate(25, 0) when hidden. set_hide_title(True) subtracts 30 from height.
+    # Formula: (50 if hide_title else 70) so that after set_hide_title's -30
+    # the hide_title=True case ends up with content_h + 20 bottom pad as well.
+    card_height = content_h + (50 if hide_title else 70)
 
     card = Card(
         width=card_width,
@@ -497,9 +500,4 @@ def render_top_languages_card(
     if disable_animations:
         card.disable_animations()
 
-    wrapped_body = (
-        f'<g transform="translate(25, {title_offset})">'
-        f'{body}'
-        f'</g>'
-    )
-    return card.render(wrapped_body)
+    return card.render(body)
